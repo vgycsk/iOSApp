@@ -1,0 +1,5 @@
+platform :ios, '8.0'
+
+pod 'AFNetworking', '2.2.1'
+pod 'BDBOAuth1Manager', '1.2.0'
+pod 'SVProgressHUD'
