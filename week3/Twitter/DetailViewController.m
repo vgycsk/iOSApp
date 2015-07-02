@@ -30,6 +30,27 @@
     self.tweetText.text = self.tweet.text;
     self.retweetCount.text = [NSString stringWithFormat:@"%ld", self.tweet.retweetCount];
     self.favoriteCount.text = [NSString stringWithFormat:@"%ld", self.tweet.favoriteCount];
+    
+    if (self.tweet.favorited) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.favoriteButton.imageView setImage: [UIImage imageNamed:@"favorite_on"]];
+        });
+    } else {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.favoriteButton.imageView setImage: [UIImage imageNamed:@"favorite"]];
+        });
+    }
+    
+    
+    if (self.tweet.retweeted) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.retweetButton.imageView setImage: [UIImage imageNamed:@"retweet_on"]];
+        });
+    } else {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.retweetButton.imageView setImage: [UIImage imageNamed:@"retweet"]];
+        });
+    }
 }
 
 - (void)didReceiveMemoryWarning {
