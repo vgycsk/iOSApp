@@ -57,6 +57,8 @@
     // navigation bar
     [self setupNavigationBar:twitterColor andTintColor:twitterSecondaryColor];
     
+     [self.tableView reloadData];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -266,8 +268,9 @@
 
 -(void)detailViewController:(DetailViewController *)controller didClickRetweet: (Tweet *) tweet {
     // tweet.retweeted was set to !tweet.retweeted prior to getting here
-    if (tweet.retweeted) {
+    if (!tweet.retweeted) {
         [[TwitterClient sharedInstance] deleteTweet:tweet.tweetID completion:^(Tweet *tweet, NSError *error) {
+             /*
             dispatch_async(dispatch_get_main_queue(), ^{
                 [controller.retweetButton.imageView setImage: [UIImage imageNamed:@"retweet"]];
                 if (error) {
@@ -275,13 +278,14 @@
                 } else {
                     NSLog(@"Successfully deleted tweet %@", tweet.text);
                 }
-                controller.tweet.retweeted = false;
                 controller.retweetCount.text = [NSString stringWithFormat:@"%ld", controller.tweet.retweetCount];
              
             });
+              */
         }];
     } else {
         [[TwitterClient sharedInstance] retweet:tweet completion:^(Tweet *tweet, NSError *error) {
+            /*
             dispatch_async(dispatch_get_main_queue(), ^{
                 [controller.retweetButton.imageView setImage: [UIImage imageNamed:@"retweet_on"]];
                 if (error) {
@@ -289,10 +293,10 @@
                 } else {
                     NSLog(@"Successfully retweeted tweet %@", tweet.text);
                 }
-                controller.tweet.retweeted = true;
                 controller.retweetCount.text = [NSString stringWithFormat:@"%ld", controller.tweet.retweetCount];
                 
             });
+             */
         }];
     }
     
@@ -303,12 +307,6 @@
     // tweet.favorited was set to !tweet.favorited prior to getting here
     if (!tweet.favorited) {
         [[TwitterClient sharedInstance] unfavorite:tweet.tweetID completion:^(Tweet *tweet, NSError *error) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [controller.favoriteButton.imageView setImage: [UIImage imageNamed:@"favorite_on"]];
-                controller.tweet.favorited = true;
-                controller.tweet.favoriteCount++;
-                controller.favoriteCount.text = [NSString stringWithFormat:@"%ld", controller.tweet.favoriteCount];
-            });
             if (error) {
                 NSLog(@"Error: %@", error);
             } else {
@@ -317,13 +315,6 @@
         }];
     } else {
         [[TwitterClient sharedInstance] favorite:tweet.tweetID completion:^(Tweet *tweet, NSError *error) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [controller.favoriteButton.imageView setImage: [UIImage imageNamed:@"favorite"]];
-                controller.tweet.favorited = false;
-                controller.tweet.favoriteCount--;
-                controller.favoriteCount.text = [NSString stringWithFormat:@"%ld", controller.tweet.favoriteCount];
-            });
-            
             if (error) {
                 NSLog(@"Error: %@", error);
             } else {

@@ -86,8 +86,18 @@
 - (IBAction)didClickRetweet:(id)sender {
     if (self.tweet.retweeted) {
         self.tweet.retweetCount--;
+        self.tweet.retweeted = false;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.retweetButton.imageView setImage: [UIImage imageNamed:@"retweet"]];
+            self.retweetCount.text = [NSString stringWithFormat:@"%ld", self.tweet.retweetCount];
+        });
     } else {
         self.tweet.retweetCount++;
+        self.tweet.retweeted = true;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.retweetButton.imageView setImage: [UIImage imageNamed:@"retweet_on"]];
+            self.retweetCount.text = [NSString stringWithFormat:@"%ld", self.tweet.retweetCount];
+        });
     }
     // reload cell
     [self setTweet:self.tweet];
@@ -98,6 +108,22 @@
 }
 
 - (IBAction)didClickFavorite:(id)sender {
+    
+    if (self.tweet.favorited) {
+        self.tweet.favoriteCount--;
+        self.tweet.favorited = false;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.favoriteButton.imageView setImage: [UIImage imageNamed:@"favorite"]];
+            self.favoriteCount.text = [NSString stringWithFormat:@"%ld", self.tweet.favoriteCount];
+        });
+    } else {
+        self.tweet.favoriteCount++;
+        self.tweet.favorited = true;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.favoriteButton.imageView setImage: [UIImage imageNamed:@"favorite_on"]];
+            self.favoriteCount.text = [NSString stringWithFormat:@"%ld", self.tweet.favoriteCount];
+        });
+    }
     
     [self setTweet:self.tweet];
     if (self.delegate){
