@@ -28,6 +28,8 @@
 		9B2945741B36F07D000D41BE /* FiltersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B2945721B36F07D000D41BE /* FiltersViewController.xib */; };
 		9B2945781B36F6C5000D41BE /* SwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B2945761B36F6C5000D41BE /* SwitchCell.m */; };
 		9B2945791B36F6C5000D41BE /* SwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B2945771B36F6C5000D41BE /* SwitchCell.xib */; };
+		9B5BAD911B44F78B001CE73F /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5BAD8F1B44F78B001CE73F /* DetailViewController.m */; };
+		9B5BAD921B44F78B001CE73F /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B5BAD901B44F78B001CE73F /* DetailViewController.xib */; };
 		9BC302C01B390BF50028B7DE /* Down-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC302BE1B390BF50028B7DE /* Down-25.png */; };
 		9BC302C11B390BF50028B7DE /* Ok-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC302BF1B390BF50028B7DE /* Ok-25.png */; };
 		9BF0C6491B383EB1008FF925 /* Filters.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF0C6481B383EB1008FF925 /* Filters.m */; };
@@ -77,6 +79,9 @@
 		9B2945751B36F6C5000D41BE /* SwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchCell.h; sourceTree = "<group>"; };
 		9B2945761B36F6C5000D41BE /* SwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchCell.m; sourceTree = "<group>"; };
 		9B2945771B36F6C5000D41BE /* SwitchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwitchCell.xib; sourceTree = "<group>"; };
+		9B5BAD8E1B44F78B001CE73F /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		9B5BAD8F1B44F78B001CE73F /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		9B5BAD901B44F78B001CE73F /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		9BC302BE1B390BF50028B7DE /* Down-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Down-25.png"; path = "icon/Down-25.png"; sourceTree = "<group>"; };
 		9BC302BF1B390BF50028B7DE /* Ok-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Ok-25.png"; path = "icon/Ok-25.png"; sourceTree = "<group>"; };
 		9BF0C6481B383EB1008FF925 /* Filters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Filters.m; sourceTree = "<group>"; };
@@ -130,6 +135,9 @@
 				420474F818DC2B2100E88E07 /* MainViewController.h */,
 				420474F918DC2B2100E88E07 /* MainViewController.m */,
 				420474FA18DC2B2100E88E07 /* MainViewController.xib */,
+				9B5BAD8E1B44F78B001CE73F /* DetailViewController.h */,
+				9B5BAD8F1B44F78B001CE73F /* DetailViewController.m */,
+				9B5BAD901B44F78B001CE73F /* DetailViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -334,6 +342,7 @@
 				42FD6C5518DC286B000BF2B9 /* InfoPlist.strings in Resources */,
 				9BC302C11B390BF50028B7DE /* Ok-25.png in Resources */,
 				9B2945741B36F07D000D41BE /* FiltersViewController.xib in Resources */,
+				9B5BAD921B44F78B001CE73F /* DetailViewController.xib in Resources */,
 				420474FC18DC2B2100E88E07 /* MainViewController.xib in Resources */,
 				42FD6C5D18DC286B000BF2B9 /* Images.xcassets in Resources */,
 				9B2945791B36F6C5000D41BE /* SwitchCell.xib in Resources */,
@@ -394,6 +403,7 @@
 				9B2945781B36F6C5000D41BE /* SwitchCell.m in Sources */,
 				9B1BA04C1B33DA5C0068879B /* Business.m in Sources */,
 				42FD6C5B18DC286B000BF2B9 /* AppDelegate.m in Sources */,
+				9B5BAD911B44F78B001CE73F /* DetailViewController.m in Sources */,
 				42FD6C5718DC286B000BF2B9 /* main.m in Sources */,
 				9BF3A61A1B3575D70083840E /* BusinessCell.m in Sources */,
 				420474F618DC299500E88E07 /* YelpClient.m in Sources */,

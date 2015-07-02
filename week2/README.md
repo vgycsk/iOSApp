@@ -19,14 +19,15 @@ Time spent: `24hr`
    - [x] Clicking on the "Search" button should dismiss the filters page and trigger the search w/ the new filter settings.
    - [x] Display some of the available Yelp categories (choose any 3-4 that you want).
 
-#### Optional
+#### Optional(all done)
 
 - [x] Search results page
    - [x] Implement map view of restaurant results
    - [x] Infinite scroll for restaurant results
 - [x] Filter page
    - [x] Radius filter should expand as in the real Yelp app
-   - [x] Categories should show a subset of the full list with a "See All" row to expand. Category list is here: http://www.yelp.com/developers/documentation/category_list (Links to an external site.)
+   - [x] Categories should show a subset of the full list with a "See All" row to expand. Category list is here: http://
+   - [x] Implement the restaurant detail page.
 
 ### Walkthrough
 

@@ -7,6 +7,7 @@
 //
 
 #import "MainViewController.h"
+#import "DetailViewController.h"
 #import "YelpClient.h"
 #import "Business.h"
 #import "BusinessCell.h"
@@ -157,6 +158,14 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     }
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"didselectrowatindexpath");
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    DetailViewController *dvc = [[DetailViewController alloc] init];
+    dvc.business = self.businesses[indexPath.row];
+    [self.navigationController pushViewController:dvc animated:YES];
 }
 
 #pragma - mark - Filter delegate methods
