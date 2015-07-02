@@ -21,6 +21,7 @@
 - (void)awakeFromNib {
     // Initialization code
 
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -33,7 +34,6 @@
 - (void)setTweet:(Tweet *)tweet {
     _tweet = tweet;
     
-    
 
     [self.picture setImageWithURL:[NSURL URLWithString:self.tweet.user.profileImageUrl]];
 
@@ -45,8 +45,27 @@
     self.tweetText.text = self.tweet.text;
     self.retweetCount.text = [NSString stringWithFormat:@"%ld", tweet.retweetCount];
     self.favoriteCount.text = [NSString stringWithFormat:@"%ld", tweet.favoriteCount];
+    
+    if (tweet.favorited) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.favoriteButton.imageView setImage: [UIImage imageNamed:@"favorite_on"]];
+        });
+    } else {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.favoriteButton.imageView setImage: [UIImage imageNamed:@"favorite"]];
+        });
+    }
 
     
+    if (tweet.retweeted) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.retweetButton.imageView setImage: [UIImage imageNamed:@"retweet_on"]];
+        });
+    } else {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.retweetButton.imageView setImage: [UIImage imageNamed:@"retweet"]];
+        });
+    }
 }
 
 - (NSString *)getDateString:(NSDate *)date {
@@ -67,9 +86,11 @@
 
 - (IBAction)didClickRetweet:(id)sender {
     if (self.tweet.retweeted) {
+        self.tweet.retweeted = false;
         self.tweet.retweetCount--;
         
     } else {
+        self.tweet.retweeted = true;
         self.tweet.retweetCount++;
     }
     // reload cell
@@ -82,10 +103,20 @@
 
 - (IBAction)didClickFavorite:(id)sender {
     
+    if (self.tweet.favorited) {
+        self.tweet.favorited = false;
+        self.tweet.favoriteCount--;
+    } else {
+        self.tweet.favorited = true;
+        self.tweet.favoriteCount++;
+    }
+    
     [self setTweet:self.tweet];
+    // reload cell
     if (self.delegate){
         [self.delegate tweetCell:self didClickFavorite:self.tweet];
     }
+
 }
 
 

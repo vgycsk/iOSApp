@@ -206,10 +206,9 @@
 
 -(void)tweetCell:(TweetCell *)tweetCell didClickRetweet: (Tweet *) tweet {
     // tweet.retweeted was set to !tweet.retweeted prior to getting here
-    if (tweet.retweeted) {
+    if (!tweet.retweeted) {
         [[TwitterClient sharedInstance] deleteTweet:tweet.tweetID completion:^(Tweet *tweet, NSError *error) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [tweetCell.retweetButton.imageView setImage: [UIImage imageNamed:@"retweet_on"]];
                 if (error) {
                     NSLog(@"Error: %@", error);
                 } else {
@@ -221,7 +220,6 @@
     } else {
         [[TwitterClient sharedInstance] retweet:tweet completion:^(Tweet *tweet, NSError *error) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [tweetCell.retweetButton.imageView setImage: [UIImage imageNamed:@"retweet"]];
                 if (error) {
                     NSLog(@"Error: %@", error);
                 } else {
@@ -241,11 +239,6 @@
     // tweet.favorited was set to !tweet.favorited prior to getting here
     if (!tweet.favorited) {
         [[TwitterClient sharedInstance] unfavorite:tweet.tweetID completion:^(Tweet *tweet, NSError *error) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [tweetCell.favoriteButton.imageView setImage: [UIImage imageNamed:@"favorite_on"]];
-                    tweetCell.tweet.favorited = true;
-                    tweetCell.tweet.favoriteCount++;
-            });
             if (error) {
                 NSLog(@"Error: %@", error);
             } else {
@@ -254,12 +247,6 @@
         }];
     } else {
         [[TwitterClient sharedInstance] favorite:tweet.tweetID completion:^(Tweet *tweet, NSError *error) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [tweetCell.favoriteButton.imageView setImage: [UIImage imageNamed:@"favorite"]];
-                tweetCell.tweet.favorited = false;
-                tweetCell.tweet.favoriteCount--;
-            });
-            
             if (error) {
                 NSLog(@"Error: %@", error);
             } else {

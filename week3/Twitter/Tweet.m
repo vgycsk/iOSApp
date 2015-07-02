@@ -28,6 +28,7 @@
         self.tweetID = dictionary[@"id_str"];
         
         self.favorited = [dictionary[@"favorited"] boolValue];
+        
         self.retweeted = [dictionary[@"retweeted"] boolValue];
         
     }
