@@ -28,4 +28,4 @@ Time spent: `<24hr>`
 
 ### Walkthrough
 
-![Video Walkthrough](demp.gif)
+![Video Walkthrough](demo.gif)
