@@ -26,11 +26,14 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
 @property (nonatomic, strong) YelpClient *client;
-@property (nonatomic, strong) NSArray *businesses;
+@property (nonatomic, strong) NSMutableArray *businesses;
 @property (nonatomic, strong) UISearchBar *searchBar;
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) UIView *activeView;
 @property (nonatomic, strong) UIView *inactiveView;
+
+@property (nonatomic, assign) BOOL isLoadMore;
+@property (nonatomic, assign) BOOL isInfiniteLoading;
 
 -(void) fetchBusinessesWithQuery:(NSString *) query params:(NSDictionary *) params;
 
@@ -121,6 +124,9 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     
     [self.mapView removeFromSuperview];
     [super viewDidLoad];
+    
+    self.isLoadMore = NO;
+    self.isInfiniteLoading = NO;
 }
 
 
@@ -142,6 +148,14 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     BusinessCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BusinessCell"];
     cell.business = self.businesses[indexPath.row];
+    
+    // Infinite loading
+    if (indexPath.row == self.businesses.count - 1 && !self.isLoadMore) {
+        NSMutableDictionary *params = [NSMutableDictionary dictionary];
+        self.isInfiniteLoading = YES;
+        [self fetchBusinessesWithQuery:@"Restaurants" params:nil];
+    }
+    
     return cell;
 }
 
@@ -175,7 +189,14 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     
     [self.client searchWithTerm:query params:params success:^(AFHTTPRequestOperation *operation, id response) {
         NSArray *businessDictionaries = response[@"businesses"];
-        self.businesses = [Business businessWithDictionaries:businessDictionaries];
+        
+        if (self.isInfiniteLoading) {
+            [self.businesses addObjectsFromArray:[Business businessWithDictionaries:businessDictionaries]];
+        } else {
+            self.businesses = [Business businessWithDictionaries:businessDictionaries];
+        }
+        self.isLoadMore = NO;
+        self.isInfiniteLoading = NO;
         
         [SVProgressHUD dismiss];
         [self.tableView reloadData];
@@ -183,7 +204,7 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     } failure:^(AFHTTPRequestOperation *operation, NSError *error){
         NSLog(@"error: %@", [error description]);
     }];
-    
+
 }
 
 - (void) showLoad {
