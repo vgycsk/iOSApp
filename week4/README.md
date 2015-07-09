@@ -24,7 +24,7 @@ Profile page
  * [x] Optional: Tapping on a user image should bring up that user's profile page
 
 Home Timeline
- * [x]Tapping on a user image should bring up that user's profile page
+ * [x] Tapping on a user image should bring up that user's profile page
 
 Account
  * [x] Account Page
