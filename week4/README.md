@@ -2,7 +2,7 @@
 
 (Sample of your weekly project submission README)
 
-This is an iOS demo application for twitter App [RottenTomatoes API](https://dev.twitter.com/rest/public).
+This is an iOS demo application for twitter App [Twitter API](https://dev.twitter.com/rest/public).
 
 Time spent: 25 hours spent in total
 
