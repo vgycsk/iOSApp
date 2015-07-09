@@ -8,10 +8,6 @@ Time spent: 25 hours spent in total
 
 Completed user stories:
 
- * [x] Required: User can view a list of latest box office movies including title, cast and tomatoes rating
- * [x] Required: User can click on a movie in the list to bring up a details page with additional information such as synopsis
- * [x] Optional: Placeholder image is used for movie posters loaded in from the network
-
     Hamburger menu
     * [x] Dragging anywhere in the view should reveal the menu.
         * [x] The menu should include links to your profile, the home timeline, and the mentions view.
