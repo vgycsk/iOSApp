@@ -32,4 +32,4 @@ Account
 
 ### Walkthrough
 
-![Video Walkthrough](demp.gif)
+![Video Walkthrough](demo.gif)
