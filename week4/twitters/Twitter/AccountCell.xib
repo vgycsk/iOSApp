@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="113" id="KGk-i7-Jjw" customClass="AccountCell">
+            <rect key="frame" x="0.0" y="-1" width="320" height="113"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z5A-07-KCA">
+                        <rect key="frame" x="274" y="0.0" width="46" height="112.5"/>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <state key="normal" title="Button">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="removeButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="qPR-x4-Gi2"/>
+                        </connections>
+                    </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7x2-NB-yIo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="112.5"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ymv-kN-OhS">
+                                <rect key="frame" x="8" y="17" width="80" height="80"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ScreenName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnN-xW-pvG">
+                                <rect key="frame" x="110" y="66" width="99" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emH-gh-aEt">
+                                <rect key="frame" x="111" y="26" width="99" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="vnN-xW-pvG" secondAttribute="trailing" constant="111" id="Api-4W-y2S"/>
+                            <constraint firstAttribute="bottom" secondItem="vnN-xW-pvG" secondAttribute="bottom" constant="26" id="ERM-QF-Org"/>
+                            <constraint firstItem="Ymv-kN-OhS" firstAttribute="top" secondItem="7x2-NB-yIo" secondAttribute="top" constant="17" id="EYJ-iT-bnO"/>
+                            <constraint firstItem="vnN-xW-pvG" firstAttribute="top" secondItem="emH-gh-aEt" secondAttribute="bottom" constant="19.5" id="KgW-bO-wX1"/>
+                            <constraint firstItem="emH-gh-aEt" firstAttribute="leading" secondItem="Ymv-kN-OhS" secondAttribute="trailing" constant="23" id="Klw-PS-cHG"/>
+                            <constraint firstAttribute="trailing" secondItem="emH-gh-aEt" secondAttribute="trailing" constant="110" id="KpE-cU-Pjp"/>
+                            <constraint firstItem="Ymv-kN-OhS" firstAttribute="leading" secondItem="7x2-NB-yIo" secondAttribute="leading" constant="8" id="LHS-8q-wEw"/>
+                            <constraint firstItem="vnN-xW-pvG" firstAttribute="leading" secondItem="Ymv-kN-OhS" secondAttribute="trailing" constant="22" id="Lm3-58-g5l"/>
+                            <constraint firstItem="emH-gh-aEt" firstAttribute="top" secondItem="7x2-NB-yIo" secondAttribute="top" constant="26" id="PuT-Dz-TQY"/>
+                            <constraint firstItem="vnN-xW-pvG" firstAttribute="top" secondItem="emH-gh-aEt" secondAttribute="bottom" constant="19.5" id="R4o-Ey-yzG"/>
+                            <constraint firstAttribute="bottom" secondItem="Ymv-kN-OhS" secondAttribute="bottom" constant="15.5" id="lqY-Tf-nxR"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="Z5A-07-KCA" secondAttribute="trailing" id="8r4-mp-xUH"/>
+                    <constraint firstItem="7x2-NB-yIo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="DJW-8z-YgT"/>
+                    <constraint firstItem="7x2-NB-yIo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="H2g-0T-Ihq"/>
+                    <constraint firstAttribute="trailing" secondItem="7x2-NB-yIo" secondAttribute="trailing" id="HhX-zV-CT5"/>
+                    <constraint firstAttribute="bottom" secondItem="7x2-NB-yIo" secondAttribute="bottom" id="Rnq-Ws-N9q"/>
+                    <constraint firstAttribute="bottom" secondItem="Z5A-07-KCA" secondAttribute="bottom" id="Ydb-lI-mdY"/>
+                    <constraint firstItem="Z5A-07-KCA" firstAttribute="leading" secondItem="7x2-NB-yIo" secondAttribute="trailing" constant="-46" id="cEU-qR-TiN"/>
+                    <constraint firstItem="Z5A-07-KCA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="o3X-ph-8t8"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="containerView" destination="7x2-NB-yIo" id="9lH-7l-EQv"/>
+                <outlet property="nameLabel" destination="emH-gh-aEt" id="hzj-eb-z0g"/>
+                <outlet property="removeButton" destination="Z5A-07-KCA" id="Nsi-lf-LOH"/>
+                <outlet property="screenNameLabel" destination="vnN-xW-pvG" id="pxA-IX-DH2"/>
+                <outlet property="userPhoto" destination="Ymv-kN-OhS" id="gM7-y2-nZQ"/>
+            </connections>
+            <point key="canvasLocation" x="270" y="225.5"/>
+        </tableViewCell>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
